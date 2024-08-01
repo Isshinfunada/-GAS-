@@ -9,12 +9,8 @@ function calendar(year, month, sheetName) {
     Logger.log("Sheet already exists: " + sheetName);
   }
 
-  // スクリプトプロパティからメールアドレスを取得
-  const scriptProperties = PropertiesService.getScriptProperties();
-  const myEmailAddress = scriptProperties.getProperty('myMailAddress');
-
   // カレンダーを読み込む
-  const cal = CalendarApp.getCalendarById(myEmailAddress);
+  const cal = CalendarApp.getCalendarsByName('Isshin Funada Task Log')[0]; 
   if (!cal) {
     Logger.log("Error: Calendar not found for the provided email address.");
     return; // カレンダーが見つからない場合、処理を停止
